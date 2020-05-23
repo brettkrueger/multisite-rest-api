@@ -19,14 +19,14 @@ You can install this using all the usual methods. The only difference is that th
   
 ### Using The WordPress Dashboard ###  
   
-1. Navigate to the 'Add New' in the plugins dashboard
+1. Navigate to 'Add New' in the plugins dashboard
 2. Search for 'multisite rest api'
 3. Click 'Install Now'
 4. Network Activate the plugin on the Plugin dashboard
 
 ### Uploading in WordPress Dashboard ###
 
-1. Navigate to the 'Add New' in the plugins dashboard
+1. Navigate to 'Add New' in the plugins dashboard
 2. Navigate to the 'Upload' area
 3. Select `multisite-rest-api.zip` from your computer
 4. Click 'Install Now'
@@ -69,30 +69,30 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 - **URL:** /wp-json/wp/v2/sites
 - **Method:** GET
 - **Args:** ["blog_id"]
-- **Examples:**
-`curl -X GET /wp-json/wp/v2/sites -H "Authorization: JWT_TOKEN"`
-`curl -X GET /wp-json/wp/v2/sites/13 -H "Authorization: JWT_TOKEN"`
+- **Examples:**  
+`curl -X GET /wp-json/wp/v2/sites -H "Authorization: JWT_TOKEN"`  
+`curl -X GET /wp-json/wp/v2/sites/13 -H "Authorization: JWT_TOKEN"`  
 
 ### Create Site ###
 - **URL:** /wp/v2/create
 - **Method:** POST
 - **Args:** ["domain", "admin_email", "admin_user" (defaults to current user), [$options](https://developer.wordpress.org/reference/functions/wpmu_create_blog/)]
-- **Examples:**
+- **Examples:**  
 `curl -X POST /wp-json/wp/v2/sites/create\?domain\=DOMAIN\&admin_email\=EMAIL\&title\=TITLE -H "Authorization: JWT_TOKEN"`
 
 ### Update Site ###
 - **Endpoint:** /wp/v2/update
 - **Method:** PUT
-- **Examples:**
+- **Examples:**  
 `curl -X PUT /wp-json/wp/v2/sites/update\?blog_id=13&\domain\=testing13.domain.local\&admin_email\=testing13@domain.local\&title\=TESTING_13 -H "Authorization: JWT_TOKEN"`
 
 ### Delete Site ###
 - **URL:** /wp-json/wp/v2/sites
 - **Method:** DELETE
 - **Args:** ["blog_id"]
-- **Examples:**
-`curl -X DELETE /wp-json/wp/v2/sites/delete\?blog_id\=13 -H "Authorization: JWT_TOKEN"`
-`curl -X DELETE /wp-json/wp/v2/sites/delete/13 -H "Authorization: JWT_TOKEN"`
+- **Examples:**  
+`curl -X DELETE /wp-json/wp/v2/sites/delete\?blog_id\=13 -H "Authorization: JWT_TOKEN"`  
+`curl -X DELETE /wp-json/wp/v2/sites/delete/13 -H "Authorization: JWT_TOKEN"`  
 
 
 ## Want to help keep the development of this plugin going? ##
