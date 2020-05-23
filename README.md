@@ -1,24 +1,24 @@
-=== Multisite REST API ===
-Contributors: brettkrueger
-Donate link: https://patreon.com/astronautdotgg/
-Tags: json, api, multisite
-Requires at least: 5.1
-Requires PHP: 7.0
-Tested up to: 5.4.1
-Stable tag: /master/
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-== Description ==
-
-This plugin provides several endpoints for creating, listing, updating, and delete WordPress multisites. It aims to make headless WordPress multisite environments not only possible, but practical.
-
-== Installation ==
-
-You can install this using all the usual methods. The only difference is that this plugin **must be network activated**.
-
-= Using The WordPress Dashboard =
-
+=== Multisite REST API ===  
+Contributors: brettkrueger  
+Donate link: https://patreon.com/astronautdotgg/  
+Tags: json, api, multisite  
+Requires at least: 5.1  
+Requires PHP: 7.0  
+Tested up to: 5.4.1  
+Stable tag: v1.0   
+License: GPLv2 or later  
+License URI: http://www.gnu.org/licenses/gpl-2.0.html  
+  
+== Description ==  
+  
+This plugin provides several endpoints for creating, listing, updating, and delete WordPress multisites. It aims to make headless WordPress multisite environments not only possible, but practical.  
+  
+== Installation ==  
+  
+You can install this using all the usual methods. The only difference is that this plugin **must be network activated**.  
+  
+= Using The WordPress Dashboard =  
+  
 1. Navigate to the 'Add New' in the plugins dashboard
 2. Search for 'multisite rest api'
 3. Click 'Install Now'
