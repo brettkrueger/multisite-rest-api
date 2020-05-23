@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   
 ## Description ##  
   
-This plugin provides several endpoints for creating, listing, updating, and delete WordPress multisites. It aims to make headless WordPress multisite environments not only possible, but practical.  
+This plugin provides several endpoints for creating, listing, updating, and deleting WordPress multisites. It aims to make headless WordPress multisite environments not only possible, but practical.  
   
 ## Installation ##  
   
@@ -22,7 +22,7 @@ You can install this using all the usual methods. The only difference is that th
 1. Navigate to 'Add New' in the plugins dashboard
 2. Search for 'multisite rest api'
 3. Click 'Install Now'
-4. Network Activate the plugin on the Plugin dashboard
+4. Network Activate the plugin in the Plugin dashboard
 
 ### Uploading in WordPress Dashboard ###
 
@@ -56,7 +56,7 @@ Upgrades are pushed through WordPress.org.
 
 ## Changelog ##
 
-# 1.0.0 #
+### 1.0.0 ###
 * Create, List, Update, Delete multisites.
 
 ## Authentication ##
@@ -66,7 +66,7 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 
 
 ### List Site(s) ###
-- **URL:** /wp-json/wp/v2/sites
+- **Endpoint:** /wp-json/wp/v2/sites
 - **Method:** GET
 - **Args:** ["blog_id"]
 - **Examples:**  
@@ -74,7 +74,7 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 `curl -X GET /wp-json/wp/v2/sites/13 -H "Authorization: JWT_TOKEN"`  
 
 ### Create Site ###
-- **URL:** /wp/v2/create
+- **Endpoint:** /wp/v2/create
 - **Method:** POST
 - **Args:** ["domain", "admin_email", "admin_user" (defaults to current user), [$options](https://developer.wordpress.org/reference/functions/wpmu_create_blog/)]
 - **Examples:**  
@@ -87,7 +87,7 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 `curl -X PUT /wp-json/wp/v2/sites/update\?blog_id=13&\domain\=testing13.domain.local\&admin_email\=testing13@domain.local\&title\=TESTING_13 -H "Authorization: JWT_TOKEN"`
 
 ### Delete Site ###
-- **URL:** /wp-json/wp/v2/sites
+- **Endpoint:** /wp-json/wp/v2/sites
 - **Method:** DELETE
 - **Args:** ["blog_id"]
 - **Examples:**  
