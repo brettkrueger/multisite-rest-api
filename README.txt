@@ -19,14 +19,14 @@ You can install this using all the usual methods. The only difference is that th
 
 = Using The WordPress Dashboard =
 
-1. Navigate to the 'Add New' in the plugins dashboard
+1. Navigate to 'Add New' in the plugins dashboard
 2. Search for 'multisite rest api'
 3. Click 'Install Now'
 4. Network Activate the plugin on the Plugin dashboard
 
 = Uploading in WordPress Dashboard =
 
-1. Navigate to the 'Add New' in the plugins dashboard
+1. Navigate to 'Add New' in the plugins dashboard
 2. Navigate to the 'Upload' area
 3. Select `multisite-rest-api.zip` from your computer
 4. Click 'Install Now'
