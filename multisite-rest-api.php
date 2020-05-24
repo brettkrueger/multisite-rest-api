@@ -9,8 +9,6 @@
  */
 include_once(get_template_directory()."/../../../wp-includes/ms-site.php");
 include_once(get_template_directory()."/../../../wp-includes/ms-functions.php");
-#include_once(get_template_directory()."/../../../wp-admin/ms-admin.php");
-
 
 /* Setup routes for site management */
 
@@ -94,7 +92,12 @@ function sites_callback( $request ) {
           return rest_ensure_response('Invalid user permissions.');
           die();
         } else {
-          $domain = $params["domain"];
+          if(! $params["domain"]) {
+            return rest_ensure_response('You must provide a domain.');
+            die();
+          } else {
+            $domain = $params["domain"];
+          }
           if(! $params["path"]) {
             $path = '/';
           } else {
