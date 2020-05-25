@@ -77,18 +77,25 @@ function sites_callback( $request ) {
       } else {
         $site_id = $params["blog_id"];
       }
-      // v This currently only works when using a route, not params. v
-      if(preg_match("/sites\/.$/", $route, $matches)) {
-        return rest_ensure_response( get_site( $site_id ));
-      }
-      elseif(preg_match("/sites\/?$/", $route)) {
-        $user_sites = get_blogs_of_user( $user );
-        return rest_ensure_response( get_sites( $user_sites ));
-      // ^ This currently only works when using a route, not params. ^
+      if(preg_match("/sites\/?/", $route, $matches)) {
+        if(($params["blog_id"]) || (preg_match("/sites\/\d\/?/", $route, $matches))) {
+          if(! is_user_member_of_blog($user, $site_id)) {
+            return rest_ensure_response('Invalid user permissions.');
+          } else {
+            return rest_ensure_response( get_site( $site_id ));
+          }
+        }
+        elseif(preg_match("/sites\/?$/", $route, $matches)) {
+          if(! current_user_can('create_sites')) {
+            $user_sites = get_blogs_of_user( $user );
+            return rest_ensure_response( get_sites( $user_sites ));
+          } else {
+            return rest_ensure_response( get_sites());
+          }
+        }
       }
       elseif (preg_match("/sites\/create/", $route, $matches)) {
         if(! current_user_can('create_sites')){
-          return $user;
           return rest_ensure_response('Invalid user permissions.');
           die();
         } else {
