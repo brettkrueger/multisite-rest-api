@@ -7,15 +7,13 @@
  * Author: Brett Krueger
  * Author URI: https://krux.us
  */
-include_once(get_template_directory()."/../../../wp-includes/ms-site.php");
-include_once(get_template_directory()."/../../../wp-includes/ms-functions.php");
 
 /* Setup routes for site management */
 
 add_action( 'rest_api_init', function () {
   register_rest_route('wp/v2', '/sites/?(?P<blog_id>\d+)?', [
     'methods'  => "GET",
-    'callback' => 'sites_callback',
+    'callback' => 'wmra_sites_callback',
     'args' => [
       'blog_id',
     ],
@@ -26,7 +24,7 @@ add_action( 'rest_api_init', function () {
   $now = current_time( 'mysql', true );
   register_rest_route('wp/v2', '/sites/create', [
     'methods'  => "POST",
-    'callback' => 'sites_callback',
+    'callback' => 'wmra_sites_callback',
     'args' => [
       'domain',
   		'path',
@@ -46,7 +44,7 @@ add_action( 'rest_api_init', function () {
 add_action( 'rest_api_init', function () {
   register_rest_route('wp/v2', '/sites/update', [
     'methods'  => "PUT",
-    'callback' => 'sites_callback',
+    'callback' => 'wmra_sites_callback',
     'args' => [
       'blog_id',
       'option',
@@ -58,7 +56,7 @@ add_action( 'rest_api_init', function () {
 add_action( 'rest_api_init', function () {
   register_rest_route('wp/v2', '/sites/delete/?(?P<blog_id>\d+)?', [
     'methods'  => "DELETE",
-    'callback' => 'sites_callback',
+    'callback' => 'wmra_sites_callback',
     'args' => [
       'blog_id',
     ],
@@ -67,7 +65,7 @@ add_action( 'rest_api_init', function () {
 /* End Site Route setup */
 
 /* Begin Sites Callback */
-function sites_callback( $request ) {
+function wmra_sites_callback( $request ) {
     if ( is_multisite() ) {
       $params = $request->get_params();
       $route = $request->get_route();
