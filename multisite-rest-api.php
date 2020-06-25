@@ -42,6 +42,19 @@ add_action( 'rest_api_init', function () {
 });
 
 add_action( 'rest_api_init', function () {
+  $now = current_time( 'mysql', true );
+  register_rest_route('wp/v2', '/sites/assign', [
+    'methods'  => "PATCH",
+    'callback' => 'wmra_sites_callback',
+    'args' => [
+		  'user_id',
+      'blog_id',
+  		'role',
+    ],
+  ]);
+});
+
+add_action( 'rest_api_init', function () {
   register_rest_route('wp/v2', '/sites/update', [
     'methods'  => "PUT",
     'callback' => 'wmra_sites_callback',
@@ -75,7 +88,7 @@ function wmra_sites_callback( $request ) {
       } else {
         $site_id = $params["blog_id"];
       }
-      if(preg_match("/sites\/?/", $route, $matches)) {
+      if($_SERVER['REQUEST_METHOD'] === 'GET' && preg_match("/sites\/?/", $route, $matches)) {
         if(($params["blog_id"]) || (preg_match("/sites\/\d\/?/", $route, $matches))) {
           if(! is_user_member_of_blog($user, $site_id)) {
             return rest_ensure_response('Invalid user permissions.');
@@ -124,6 +137,18 @@ function wmra_sites_callback( $request ) {
           return rest_ensure_response(wpmu_create_blog($domain, $path, $title, $user_id, $options));
         }
       }
+      elseif (preg_match("/sites\/assign/", $route, $matches)) {
+        if(! current_user_can('update_sites')){
+          return rest_ensure_response('Invalid user permissions.');
+          die();
+        } else {
+          $user_id = $params["user_id"] ?? $user;
+          $blog_id = $params["blog_id"];
+          $role = $params["role"];
+          add_user_to_blog( $blog_id, $user_id, $role );
+          return rest_ensure_response('User '.$user_id.' added to blog id '.$blog_id.'.');
+        }
+  	  }
       elseif (preg_match("/sites\/update/", $route, $matches)) {
         if(! current_user_can('update_sites')){
           return rest_ensure_response('Invalid user permissions.');
