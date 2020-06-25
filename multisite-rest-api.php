@@ -47,9 +47,9 @@ add_action( 'rest_api_init', function () {
     'methods'  => "PATCH",
     'callback' => 'wmra_sites_callback',
     'args' => [
-		  'user_id',
-      'blog_id',
-  		'role',
+	'user_id',
+	'blog_id',
+	'role',
     ],
   ]);
 });
