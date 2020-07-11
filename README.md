@@ -1,7 +1,7 @@
 ## Multisite REST API ##  
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)  
 Contributors: brettkrueger  
-Donate link: https://patreon.com/kruxlabs/ 
+Donate link: https://patreon.com/kruxlabs/  
 Tags: json, api, multisite  
 Requires at least: 5.1  
 Requires PHP: 7.0  
@@ -91,6 +91,13 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 `curl -X DELETE /wp-json/wp/v2/sites/delete\?blog_id\=13 -H "Authorization: JWT_TOKEN"`  
 `curl -X DELETE /wp-json/wp/v2/sites/delete/13 -H "Authorization: JWT_TOKEN"`  
 
+### Assign User to Site ###  
+- **Endpoint:** /wp-json/wp/v2/assign  
+- **Method:** PATCH  
+- **ARGS:** ["user_id", "blog_id"] (defaults to current user_id)  
+- **Examples:**  
+`curl -X PATCH /wp-json/wp/v2/sites/assign\?blog_id\=13 -H "Authorization: JWT_TOKEN"`  
+`curl -X PATCH /wp-json/wp/v2/sites/assign\?user_id=3&\?blog_id\=13 -H "Authorization: JWT_TOKEN"`  
 
 ## Want to help keep the development of this plugin going? ##
 
