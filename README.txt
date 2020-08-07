@@ -11,6 +11,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides several endpoints for creating, listing, updating, and deleting WordPress multisites. It aims to make headless WordPress multisite environments not only possible, but practical.
 
+Take a look at our [github page](http://github.com/brettkrueger/multisite-rest-api/) for the full documentation.
+
+= Authentication =
+
+All endpoints require authentication from an existing WordPress user.
+We suggest using JWT through something like [simple-jwt-login](https://wordpress.org/plugins/simple-jwt-login/).
+
 == Frequently Asked Questions ==
 
 = Where is the documentation for the API? =
@@ -32,9 +39,4 @@ Upgrades are pushed through WordPress.org.
 
 = 1.0.0 =
 * Create, List, Update, Delete multisites.
-
-= Authentication =
-
-All endpoints require authentication from an existing WordPress user.
-We suggest using JWT through something like [simple-jwt-login](https://wordpress.org/plugins/simple-jwt-login/).
 
