@@ -40,4 +40,4 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 
 === Want to help keep the development of this plugin going? ===
 
-Consider [donating](https://patreon.com/astronautdotgg/) today!
+Consider [donating](https://patreon.com/kruxlabs/) today!
