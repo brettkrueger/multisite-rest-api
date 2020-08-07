@@ -99,6 +99,3 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 `curl -X PATCH /wp-json/wp/v2/sites/assign\?blog_id\=13 -H "Authorization: JWT_TOKEN"`  
 `curl -X PATCH /wp-json/wp/v2/sites/assign\?user_id=3&\?blog_id\=13 -H "Authorization: JWT_TOKEN"`  
 
-## Want to help keep the development of this plugin going? ##
-
-Consider [donating](https://patreon.com/kruxlabs/) today!
