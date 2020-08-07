@@ -38,6 +38,3 @@ Upgrades are pushed through WordPress.org.
 All endpoints require authentication from an existing WordPress user.
 We suggest using JWT through something like [simple-jwt-login](https://wordpress.org/plugins/simple-jwt-login/).
 
-=== Want to help keep the development of this plugin going? ===
-
-Consider [donating](https://patreon.com/kruxlabs/) today!
