@@ -69,20 +69,20 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 `curl -X GET /wp-json/wp/v2/sites/13 -H "Authorization: JWT_TOKEN"`  
 
 ### Create Site ###
-- **Endpoint:** /wp/v2/create
+- **Endpoint:** /wp-json/wp/v2/sites/create
 - **Method:** POST
 - **Args:** ["domain", "admin_email", "admin_user" (defaults to current user), [$options](https://developer.wordpress.org/reference/functions/wpmu_create_blog/)]
 - **Examples:**  
 `curl -X POST /wp-json/wp/v2/sites/create\?domain\=DOMAIN\&admin_email\=EMAIL\&title\=TITLE -H "Authorization: JWT_TOKEN"`
 
 ### Update Site ###
-- **Endpoint:** /wp/v2/update
+- **Endpoint:** /wp-json/wp/v2/sites/update
 - **Method:** PUT
 - **Examples:**  
 `curl -X PUT /wp-json/wp/v2/sites/update\?blog_id=13&\domain\=testing13.domain.local\&admin_email\=testing13@domain.local\&title\=TESTING_13 -H "Authorization: JWT_TOKEN"`
 
 ### Delete Site ###
-- **Endpoint:** /wp-json/wp/v2/sites
+- **Endpoint:** /wp-json/wp/v2/sites/delete/{blog_id}
 - **Method:** DELETE
 - **Args:** ["blog_id"]
 - **Examples:**  
@@ -90,7 +90,7 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 `curl -X DELETE /wp-json/wp/v2/sites/delete/13 -H "Authorization: JWT_TOKEN"`  
 
 ### Assign User to Site ###  
-- **Endpoint:** /wp-json/wp/v2/assign  
+- **Endpoint:** /wp-json/wp/v2/sites/assign
 - **Method:** PATCH  
 - **ARGS:** ["user_id", "blog_id"] (defaults to current user_id)  
 - **Examples:**  
