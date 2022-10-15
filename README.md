@@ -1,9 +1,9 @@
 ## Multisite REST API ##  
 Contributors: brettkrueger  
-Tags: json, api, multisite  
+Tags: json, API, multisite  
 Requires at least: 5.1  
-Requires PHP: 7.0  
-Tested up to: 5.4.1  
+Requires PHP: 7.0+  
+Tested up to: 6.0  
 Stable tag: v1.1
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -19,7 +19,7 @@ You can install this using all the usual methods. The only difference is that th
 ### Using The WordPress Dashboard ###  
 
 1. Navigate to 'Add New' in the plugins dashboard
-2. Search for 'multisite rest api'
+2. Search for 'multisite rest API'
 3. Click 'Install Now'
 4. Network Activate the plugin in the Plugin dashboard
 

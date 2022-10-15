@@ -1,12 +1,12 @@
 === Multisite REST API ===
-Contributors: brettkrueger
-Tags: json, api, multisite
-Requires at least: 5.1
-Requires PHP: 7.0
-Tested up to: 5.4.1
-Stable tag: 1.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors: brettkrueger  
+Tags: json, API, multisite  
+Requires at least: 5.1  
+Requires PHP: 7.0+  
+Tested up to: 6.0  
+Stable tag: v1.1
+License: GPLv2 or later  
+License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
 This plugin provides several endpoints for creating, listing, updating, and deleting WordPress multisites. It aims to make headless WordPress multisite environments not only possible, but practical.
 
