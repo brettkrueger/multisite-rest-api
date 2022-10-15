@@ -6,13 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: 
-          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "🎉 New job triggered by a ${{ github.event_name }} event."
       - run: 
-          echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          echo "🐧 Job is now running on ${{ runner.os }} - hosted by GitHub!"
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: 
-          echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          echo "💡 Cloned ${{ github.repository }} repository."
       - name: Super-Linter
         uses: github/super-linter@v4.9.7
       - run: echo "🍏 This job's status is ${{ job.status }}."
