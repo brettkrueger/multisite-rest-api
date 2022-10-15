@@ -1,6 +1,5 @@
 === Multisite REST API ===
 Contributors: brettkrueger
-Donate link: https://patreon.com/kruxlabs/ 
 Tags: json, api, multisite
 Requires at least: 5.1
 Requires PHP: 7.0
