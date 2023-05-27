@@ -4,7 +4,7 @@ Tags: json, api, multisite
 Requires at least: 5.1  
 Requires PHP: 7.0  
 Tested up to: 6.2.2  
-Stable tag: v1.2
+Stable tag: v1.2.1  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -47,6 +47,9 @@ Upgrades are pushed through WordPress.org.
 1. [Screenshot](https://raw.githubusercontent.com/brettkrueger/multisite-rest-api/main/screenshot.png)
 
 ## Changelog ##
+
+### 1.2.1 ####
+* Fix versioning in SVN 
 
 ### 1.2.0 ###
 * General quality of life improvements
