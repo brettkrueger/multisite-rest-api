@@ -4,6 +4,7 @@
  * Plugin URI: https://krux.us/multisite-rest-api/
  * Description: Adds multisite functionality to Rest API
  * Version: 1.2.1
+ * Network: true
  * Author: Brett Krueger
  * Author URI: https://krux.us
  */
