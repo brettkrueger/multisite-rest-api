@@ -33,6 +33,9 @@ Upgrades are pushed through WordPress.org.
 
 == Changelog ==
 
+= 1.3.0 =
+* Get or create a new user when creating a site
+
 = 1.2.1 =
 * Fix versioning in SVN
 
