@@ -3,7 +3,7 @@
  * Plugin Name: Multisite Rest API
  * Plugin URI: https://krux.us/multisite-rest-api/
  * Description: Adds multisite functionality to Rest API
- * Version: 1.2.1
+ * Version: 1.3.0
  * Author: Brett Krueger
  * Author URI: https://krux.us
  */
@@ -28,6 +28,10 @@ add_action( 'rest_api_init', function () {
     'args' => [
       'domain',
   		'path',
+  		'title',
+      'email',
+      'password',
+      'user_id',
   		'network_id'   => get_current_network_id(),
   		'registered'   => $now,
   		'last_updated' => $now,
@@ -76,6 +80,33 @@ add_action( 'rest_api_init', function () {
   ]);
 });
 /* End Site Route setup */
+
+/**
+ * Creates a new user if one doesn't already exist.
+ * If it does exist, just returns the existing user's id.
+ * Sanitizes email address automatically.
+ * @param dirty_email string An unsanitized email
+ * @param username string The username
+ * @return user WP_User The Wordpress user object
+ */
+function get_or_create_user_by_email($dirty_email, $username, $password = null) {
+  $email = sanitize_email($dirty_email);
+  if ($email === "") return false;
+  $user = get_user_by('email', $email);
+  if ($user) return $user;
+  // if the email doesn't exist, lets check for the login
+  // which we create from the domain
+  $user = get_user_by('login', $username);
+  if ($user) return $user;
+  // Create a new user with a random password
+  if ($password === null) $password = wp_generate_password(12, false);
+  $user_id = wpmu_create_user($username, $password, $email);
+  wp_new_user_notification($user_id, $password);
+  // Its possible for the $user_id to be false here, but it seems to
+  // be only in extreme cases where the database is failing or some
+  // other odd circumstance happens
+  return (get_user_by('id', $user_id));
+}
 
 /* Begin Sites Callback */
 function wmra_sites_callback( $request ) {
@@ -131,10 +162,15 @@ function wmra_sites_callback( $request ) {
           } else {
             $user_id = $params["user_id"];
           }
-          $options = [
-            "admin_email" => $params["admin_email"],
-          ];
-          return rest_ensure_response(wpmu_create_blog($domain, $path, $title, $user_id, $options));
+          if ($params["email"]) {
+            $user = get_or_create_user_by_email($params["email"], $params["email"], $params["password"] ? $params["password"] : null);
+            if (!$user) {
+              return rest_ensure_response('Email is invalid.');
+              die();
+            }
+            $user_id = $user->ID;
+          }
+          return rest_ensure_response(wpmu_create_blog($domain, $path, $title, $user_id));
         }
       }
       elseif (preg_match("/sites\/assign/", $route, $matches)) {
