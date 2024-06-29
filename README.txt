@@ -3,7 +3,7 @@ Contributors: brettkrueger
 Tags: json, api, multisite
 Requires at least: 5.1
 Requires PHP: 7.0
-Tested up to: 6.2.2
+Tested up to: 6.5.5
 Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ This plugin provides several endpoints for creating, listing, updating, and dele
 
 Take a look at our [github page](http://github.com/brettkrueger/multisite-rest-api/) for the full documentation.
 
-= Authentication =
+== Authentication ==
 
 All endpoints require authentication from an existing WordPress user.
 We suggest using JWT through something like [simple-jwt-login](https://wordpress.org/plugins/simple-jwt-login/).
