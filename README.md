@@ -4,7 +4,7 @@ Tags: json, api, multisite
 Requires at least: 5.1  
 Requires PHP: 7.0  
 Tested up to: 6.2.2  
-Stable tag: v1.2.1  
+Stable tag: v1.3.0  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -48,6 +48,9 @@ Upgrades are pushed through WordPress.org.
 
 ## Changelog ##
 
+### 1.3.0 ####
+* Get or create a new user when creating a site
+
 ### 1.2.1 ####
 * Fix versioning in SVN 
 
@@ -77,9 +80,9 @@ We suggest using JWT through something like [simple-jwt-login](https://wordpress
 ### Create Site ###
 - **Endpoint:** /wp-json/wp/v2/sites/create
 - **Method:** POST
-- **Args:** ["domain", "admin_email", "admin_user" (defaults to current user), [$options](https://developer.wordpress.org/reference/functions/wpmu_create_blog/)]
+- **Args:** ["domain", "path", "title", "email", "password" (password will be random if empty and notify to user via email), [$options](https://developer.wordpress.org/reference/functions/wpmu_create_blog/)]
 - **Examples:**  
-`curl -X POST /wp-json/wp/v2/sites/create\?domain\=DOMAIN\&admin_email\=EMAIL\&title\=TITLE -H "Authorization: JWT_TOKEN"`
+`curl -X POST /wp-json/wp/v2/sites/create\?domain\=DOMAIN\&path\=PATH\&title\=TITLE\&email\=EMAIL\&password\=PASSWORD -H "Authorization: JWT_TOKEN"`
 
 ### Update Site ###
 - **Endpoint:** /wp-json/wp/v2/sites/update
