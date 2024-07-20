@@ -1,5 +1,5 @@
 ## Multisite REST API ##  
-Contributors: brettkrueger  
+Contributors: brettkrueger, umajeric, amydinsyahira  
 Tags: json, api, multisite  
 Requires at least: 5.1  
 Requires PHP: 7.0  
